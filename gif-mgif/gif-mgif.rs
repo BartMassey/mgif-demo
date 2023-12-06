@@ -1,8 +1,6 @@
 // Adapted from Rustdoc example.
 
 use gif::{Frame, Encoder, Repeat};
-use std::fs::File;
-use std::borrow::Cow;
  
 fn make_frame(dim: usize, phase: bool) -> Frame<'static> {
     let mut buffer = vec![0u8; dim * dim];
@@ -27,7 +25,7 @@ fn make_frame(dim: usize, phase: bool) -> Frame<'static> {
     let mut frame = Frame::default();
     frame.width = dim as u16;
     frame.height = dim as u16;
-    frame.buffer = Cow::Owned(buffer);
+    frame.buffer = std::borrow::Cow::Owned(buffer);
     frame.delay = 50;
     frame
 }
@@ -35,7 +33,7 @@ fn make_frame(dim: usize, phase: bool) -> Frame<'static> {
 fn main() {
     let color_map = &[0, 0, 0, 0xff, 0, 0];
     let dim = 128;
-    let mut image = File::create("flasher.gif").unwrap();
+    let mut image = std::fs::File::create("flasher.gif").unwrap();
     let mut encoder = Encoder::new(&mut image, dim, dim, color_map).unwrap();
     encoder.set_repeat(Repeat::Infinite).unwrap();
     for phase in [false, true] {
