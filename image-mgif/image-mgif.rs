@@ -29,7 +29,7 @@ fn main() {
     encoder.set_repeat(Repeat::Infinite).unwrap();
 
     let delay = Delay::from_numer_denom_ms(500, 1);
-    for phase in [true, false] {
+    for phase in [false, true] {
         let rgba = make_rgba(128, phase);
         let frame = Frame::from_parts(rgba, 0, 0, delay);
         encoder.encode_frame(frame).unwrap();
