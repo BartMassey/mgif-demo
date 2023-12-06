@@ -1,0 +1,7 @@
+[workspace]
+resolver = "2"
+members = [
+    "image-mgif",
+    "gif-mgif",
+    "gifski-mgif",
+]
