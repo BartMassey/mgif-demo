@@ -1,0 +1,15 @@
+[package]
+name = "gifski-mgif"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+gifski = "1.13.1"
+imgref = "1.10.0"
+rgb = "0.8.37"
+
+[[bin]]
+name = "gifski-mgif"
+path = "gifski-mgif.rs"
